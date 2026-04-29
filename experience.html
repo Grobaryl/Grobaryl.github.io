@@ -11,6 +11,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.exp-details {
+				display: none;
+				margin-top: 1rem;
+			}
+			.exp-toggle {
+				margin-top: 0.75rem;
+				cursor: pointer;
+			}
+			.exp-toggle .icon-chevron {
+				display: inline-block;
+				margin-left: 0.4rem;
+				transition: transform 0.3s ease;
+			}
+			.exp-toggle.open .icon-chevron {
+				transform: rotate(180deg);
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -52,7 +70,12 @@
 								<span class="date">Mars 2023 &ndash; Aout 2023 &bull; EDF - Unitep</span>
 							</header>
 							<p>Developpement d'un bâtiment réacteur nucléaire virtuel.</p>
-							<p></p>
+							<ul class="actions">
+								<li><button class="button exp-toggle" aria-expanded="false">Voir plus <span class="icon-chevron">&#x2303;</span></button></li>
+							</ul>
+							<div class="exp-details">
+								<p>Décrivez ici les détails supplémentaires du poste : technologies utilisées, équipe, résultats obtenus, etc.</p>
+							</div>
 							<div style="clear:both;"></div>
 						</section>
 
@@ -61,10 +84,15 @@
 							<span class="image left"><img src="images/tricastin.png" alt="Company logo or relevant image" /></span>
 							<header>
 								<h2>Software Developper</h2>
-								<span class="date">Month Year &ndash; Month Year &bull; Company Name</span>
+								<span class="date">Mai 2021 &ndash; Aout 2021 &bull; EDF - UFPI</span>
 							</header>
 							<p>Création d'une application d'accueil au sein d'un centre de formation</p>
-							<p></p>
+							<ul class="actions">
+								<li><button class="button exp-toggle" aria-expanded="false">Voir plus <span class="icon-chevron">&#x2303;</span></button></li>
+							</ul>
+							<div class="exp-details">
+								<p>Décrivez ici les détails supplémentaires du poste : technologies utilisées, équipe, résultats obtenus, etc.</p>
+							</div>
 							<div style="clear:both;"></div>
 						</section>
 
@@ -76,13 +104,39 @@
 								<span class="date">Avril 2020 &ndash; Mai 2021 &bull; Stélerio</span>
 							</header>
 							<p>Création d'un plugin de mini jeu de course.</p>
-							<p></p>
+							<ul class="actions">
+								<li><button class="button exp-toggle" aria-expanded="false">Voir plus <span class="icon-chevron">&#x2303;</span></button></li>
+							</ul>
+							<div class="exp-details">
+								<p>Décrivez ici les détails supplémentaires du poste : technologies utilisées, équipe, résultats obtenus, etc.</p>
+							</div>
 							<div style="clear:both;"></div>
 						</section>
 
 					</div>
 
 			</div>
+
+		<!-- Experience toggle script -->
+			<script>
+				document.querySelectorAll('.exp-toggle').forEach(function(btn) {
+					btn.addEventListener('click', function() {
+						var details = this.closest('section').querySelector('.exp-details');
+						var expanded = this.getAttribute('aria-expanded') === 'true';
+						if (expanded) {
+							details.style.display = 'none';
+							this.setAttribute('aria-expanded', 'false');
+							this.innerHTML = 'Voir plus <span class="icon-chevron">&#x2303;</span>';
+							this.classList.remove('open');
+						} else {
+							details.style.display = 'block';
+							this.setAttribute('aria-expanded', 'true');
+							this.innerHTML = 'Voir moins <span class="icon-chevron">&#x2303;</span>';
+							this.classList.add('open');
+						}
+					});
+				});
+			</script>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
